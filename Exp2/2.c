@@ -6,6 +6,8 @@ struct Student{
         char address[20];
 };
 int main(){
+    printf("Student Name: Ronit Kundnani");
+    printf("Student RollNo: 24BIT100");
     struct Student s1;
     struct Student *ptr;
     ptr=&s1;

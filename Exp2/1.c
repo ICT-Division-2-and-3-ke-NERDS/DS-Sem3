@@ -1,5 +1,7 @@
 #include <stdio.h>
 int main(){
+    printf("Student Name: Ronit Kundnani");
+    printf("Student RollNo: 24BIT100");
     int a=10,b=20,c=30;
     int *ptr[]={&a,&b,&c};
     for(int i=0;i<3;i++){

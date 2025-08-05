@@ -1,5 +1,7 @@
 #include <stdio.h>
 void swap(int *a,int *b){
+    printf("Student Name: Ronit Kundnani");
+    printf("Student RollNo: 24BIT100");
     int temp=*a;
     *a=*b;
     *b=temp;
