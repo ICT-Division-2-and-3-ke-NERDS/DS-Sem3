@@ -9,6 +9,8 @@ void add(int arr1[3][3],int arr2[3][3],int res[3][3]){
 }
 
 int main(){
+    printf("Student Name: Ronit Kundnani");
+    printf("Student RollNo: 24BIT100");
     int arr1[3][3];
     int arr2[3][3];
     int res[3][3];

@@ -1,6 +1,7 @@
 #include <stdio.h>
 int main(){
-    //taking input of array
+    printf("Student Name: Ronit Kundnani");
+    printf("Student RollNo: 24BIT100");
     int n;
     printf("Enter the size of array: ");
     scanf("%d",&n);
@@ -10,12 +11,10 @@ int main(){
         scanf("%d",&arr[i]);
     }
 
-    //Finding largest and smallest two values
     int largest=arr[0] , secondLarge=arr[0];
     int smallest=arr[0] , secondSmall=arr[0];
 
     for(int i=0;i<n;i++){
-        //For large
         if(arr[i]>largest){
             secondLarge=largest;
             largest=arr[i];
@@ -24,7 +23,6 @@ int main(){
             secondLarge=arr[i];
         }
 
-        //for small
         if(arr[i]<smallest){
             secondSmall=smallest;
             smallest=arr[i];
