@@ -1,7 +1,7 @@
 #include <stdio.h>
 int main(){
-    printf("Student Name: Ronit Kundnani");
-    printf("Student RollNo: 24BIT100");
+    printf("Student Name: Ronit Kundnani\n");
+    printf("Student RollNo: 24BIT100\n");
     int n;
     printf("Enter the size of array: ");
     scanf("%d",&n);

@@ -9,8 +9,8 @@ void add(int arr1[3][3],int arr2[3][3],int res[3][3]){
 }
 
 int main(){
-    printf("Student Name: Ronit Kundnani");
-    printf("Student RollNo: 24BIT100");
+    printf("Student Name: Ronit Kundnani\n");
+    printf("Student RollNo: 24BIT100\n");
     int arr1[3][3];
     int arr2[3][3];
     int res[3][3];
@@ -18,15 +18,15 @@ int main(){
     printf("Enter the Elements of the matrix 1 \n");
     for(int i=0;i<3;i++){
         for(int j=0;j<3;j++){
-            printf("Enter %d %d th element",i,j);
+            printf("Enter %d %d th element:",i,j);
             scanf("%d",&arr1[i][j]);  
         }
         printf("\n");
     }
-    printf("Enter the Elements of the matrix 2 \n");
+    printf("Enter the Elements of the matrix 2: \n");
     for(int i=0;i<3;i++){
         for(int j=0;j<3;j++){
-            printf("Enter %d %d th element",i,j);
+            printf("Enter %d %d th element:",i,j);
             scanf("%d",&arr2[i][j]);  
         }
         printf("\n");

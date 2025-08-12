@@ -5,8 +5,8 @@ struct Student{
         char address[20];
 };
 int main(){
-    printf("Student Name: Ronit Kundnani");
-    printf("Student RollNo: 24BIT100");
+    printf("Student Name: Ronit Kundnani\n");
+    printf("Student RollNo: 24BIT100\n");
     int n;
     printf("Enter the number of students:");
     scanf("%d",&n);
