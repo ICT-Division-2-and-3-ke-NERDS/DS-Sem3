@@ -1,10 +1,11 @@
 #include <stdio.h>
-
+#include<stdlib.h>
 struct Queue
 {
+    int size;
     int front;
     int rear;
-    int arr[100];
+    int *arr;
 };
 
 int isFull(struct Queue *queue){
@@ -85,17 +86,21 @@ int rear(struct Queue *queue){
 
 int main()
 {
-    struct Queue queue;
-    queue.front=-1;
-    queue.rear=-1;
-    insertion(&queue,10);
-    printf("%d\n",front(&queue));
-    printf("Value inserted %d\n",insertion(&queue,20));
-    printf("Value inserted %d\n",insertion(&queue,40));
-    printf("Value inserted %d\n",insertion(&queue,39));
-    printf("Value inserted %d\n",insertion(&queue,30));
-    printf("Value deleted %d\n",deletion(&queue));
-    printf("%d\n",front(&queue));
-    printf("%d\n",rear(&queue));
+    printf("Student Name: Ronit Kundnani\n");
+    printf("Student RollNo: 24BIT100\n");
+    struct Queue *queue;
+    queue->size=100;
+    queue->front=-1;
+    queue->rear=-1;
+    queue->arr=(int *)malloc(sizeof(int)*queue->size);
+    insertion(queue,10);
+    printf("%d\n",front(queue));
+    printf("Value inserted %d\n",insertion(queue,20));
+    printf("Value inserted %d\n",insertion(queue,40));
+    printf("Value inserted %d\n",insertion(queue,39));
+    printf("Value inserted %d\n",insertion(queue,30));
+    printf("Value deleted %d\n",deletion(queue));
+    printf("%d\n",front(queue));
+    printf("%d\n",rear(queue));
     return 0;
 }
