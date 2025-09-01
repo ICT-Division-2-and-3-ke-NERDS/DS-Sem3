@@ -55,7 +55,7 @@ int isOperant(char a)
     return (a >= '0' && a <= '9');
 }
 
-int eval(char *exp)
+int inftopost(char *exp)
 {
     struct stack *s = (struct stack *)malloc(sizeof(struct stack));
     s->top = -1;
@@ -111,6 +111,6 @@ int main()
     printf("Student RollNo: 24BIT100\n");
     char * exp="23+54*+";
     // char *exp = "22/";
-    printf("Result:%d", eval(exp));
+    printf("Result:%d", inftopost(exp));
     return 0;
 }
