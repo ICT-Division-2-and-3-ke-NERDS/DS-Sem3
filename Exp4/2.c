@@ -107,6 +107,8 @@ int eval(char *exp)
 
 int main()
 {
+    printf("Student Name: Ronit Kundnani\n");
+    printf("Student RollNo: 24BIT100\n");
     char * exp="23+54*+";
     // char *exp = "22/";
     printf("Result:%d", eval(exp));

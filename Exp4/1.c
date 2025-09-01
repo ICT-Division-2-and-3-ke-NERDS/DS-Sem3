@@ -111,6 +111,8 @@ char *inftopost(char *infix)
 
 int main()
 {
+    printf("Student Name: Ronit Kundnani\n");
+    printf("Student RollNo: 24BIT100\n");
     char *infix = "a+b+c";
     printf("%s\n", inftopost(infix));
     return 0;
