@@ -79,6 +79,8 @@ void display(struct Node *front)
 }
 
 int main(){
+    printf("Student Name: Ronit Kundnani\n");
+    printf("Student RollNo: 24BIT100\n");
     struct Node* front=NULL;
     struct Node* rear=NULL;
     enqueue(&front,&rear,10);

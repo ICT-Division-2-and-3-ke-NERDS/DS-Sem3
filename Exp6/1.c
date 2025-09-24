@@ -156,6 +156,8 @@ struct Node *deleteFromPosition(struct Node *ptr, int index)
 
 int main()
 {
+    printf("Student Name: Ronit Kundnani\n");
+    printf("Student RollNo: 24BIT100\n");
     struct Node *head;
     struct Node *second;
     struct Node *third;

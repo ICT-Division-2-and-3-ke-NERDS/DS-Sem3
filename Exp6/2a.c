@@ -70,6 +70,8 @@ void display(struct Node *top)
 
 int main()
 {
+    printf("Student Name: Ronit Kundnani\n");
+    printf("Student RollNo: 24BIT100\n");
     struct Node *top = NULL;
     push(&top, 10);
     push(&top, 20);
