@@ -78,10 +78,13 @@ int findHeight(struct Node* root){
     int leftHeight=findHeight(root->left);
     int rightHeight=findHeight(root->right);
     if(leftHeight>rightHeight) return leftHeight+1;
-    if(leftHeight<rightHeight) return rightHeight+1;
+    else return rightHeight+1;
+    
 }
 
 int main(){
+    printf("Student Name: Ronit Kundnani\n");
+    printf("Student RollNo: 24BIT100\n");
     struct  Node * root=createNode(5);
     struct  Node * p1=createNode(3);
     struct  Node * p2=createNode(6);
@@ -109,5 +112,14 @@ int main(){
     printf("InOrder Traversal after insertion:");
     inorder(root);
     printf("\n");
+    printf("%d searching in tree.\n",70);
+    if (search(root,70))
+    {
+        printf("value found\n");
+    }
+    else{
+        printf("value not found.\n");
+    }
+    printf("Height of tree is %d\n",findHeight(root));
     return 0;
 }
