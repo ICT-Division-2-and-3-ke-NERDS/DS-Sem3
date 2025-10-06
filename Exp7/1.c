@@ -113,7 +113,7 @@ int main(){
     inorder(root);
     printf("\n");
     printf("%d searching in tree.\n",70);
-    if (search(root,70))
+    if (search(root,70)!=NULL)
     {
         printf("value found\n");
     }
