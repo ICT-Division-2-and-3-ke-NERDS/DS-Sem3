@@ -108,7 +108,7 @@ void displayForward()
         return;
     }
     struct Node *temp = front;
-    printf("Deque (Front → Rear):\n");
+    printf("Deque (Front -> Rear):\n");
     while (temp != NULL)
     {
         printf("Data: %d\n", temp->data);
@@ -124,7 +124,7 @@ void displayBackward()
         return;
     }
     struct Node *temp = rear;
-    printf("Deque (Rear → Front):\n");
+    printf("Deque (Rear -> Front):\n");
     while (temp != NULL)
     {
         printf("Data: %d\n", temp->data);
