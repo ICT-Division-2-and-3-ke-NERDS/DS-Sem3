@@ -1,84 +1,83 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define V_MAX 7
-#define E_MAX 9
+struct Edge
+{
+    int src;
+    int dest;
+    int weight;
+};
 
-typedef struct Edge {
-    int src, dest, weight;
-} Edge;
+int parent[20];
 
-int parent[V_MAX];
-
-void makeSet() {
-    for (int i = 0; i < V_MAX; i++) {
-        parent[i] = i;
-    }
-}
-
-int find(int i) {
+int findParent(int i)
+{
     if (parent[i] == i)
         return i;
-    return parent[i] = find(parent[i]);
+    return parent[i] = findParent(parent[i]);
 }
 
-void Union(int a, int b) {
-    int rootA = find(a);
-    int rootB = find(b);
-    if (rootA != rootB) {
+void unionSet(int a, int b)
+{
+    int rootA = findParent(a);
+    int rootB = findParent(b);
+    if (rootA != rootB)
         parent[rootB] = rootA;
-    }
 }
 
-int compareEdges(const void* a, const void* b) {
-    Edge* edgeA = (Edge*)a;
-    Edge* edgeB = (Edge*)b;
+int compare(const void *a, const void *b)
+{
+    struct Edge *edgeA = (struct Edge *)a;
+    struct Edge *edgeB = (struct Edge *)b;
     return edgeA->weight - edgeB->weight;
 }
 
-void kruskalMST(Edge edges[], int V, int E) {
-    qsort(edges, E, sizeof(Edge), compareEdges);
+void makeSet(int V)
+{
+    for (int i = 0; i < V; i++)
+        parent[i] = i;
+}
 
-    makeSet();
+void kruskalMST(struct Edge edges[], int V, int E)
+{
+    qsort(edges, E, sizeof(struct Edge), compare);
+    makeSet(V);
 
-    Edge resultMST[V - 1];
+    struct Edge result[V - 1];
     int edgeCount = 0;
+    int totalCost = 0;
 
-    printf("Processing edges to build MST:\n");
-    for (int i = 0; i < E && edgeCount < V - 1; i++) {
-        Edge nextEdge = edges[i];
+    for (int i = 0; i < E && edgeCount < V - 1; i++)
+    {
+        int srcRoot = findParent(edges[i].src);
+        int destRoot = findParent(edges[i].dest);
 
-        int rootSrc = find(nextEdge.src);
-        int rootDest = find(nextEdge.dest);
-
-        if (rootSrc != rootDest) {
-            resultMST[edgeCount++] = nextEdge;
-            Union(nextEdge.src, nextEdge.dest);
-
-            printf("  Included edge (%d - %d) with weight %d (MST Edges: %d)\n",
-                    nextEdge.src, nextEdge.dest, nextEdge.weight, edgeCount);
-        } else {
-            printf("  Rejected edge (%d - %d) with weight %d (Forms a cycle)\n",
-                    nextEdge.src, nextEdge.dest, nextEdge.weight);
+        if (srcRoot != destRoot)
+        {
+            result[edgeCount++] = edges[i];
+            unionSet(srcRoot, destRoot);
         }
     }
 
-    printf("\nMinimum Spanning Tree (MST) Edges:\n");
-    int minCost = 0;
-    for (int i = 0; i < V - 1; i++) {
-        printf("  %d -- %d (Weight: %d)\n", resultMST[i].src, resultMST[i].dest, resultMST[i].weight);
-        minCost += resultMST[i].weight;
+    printf("Edges in the Minimum Spanning Tree:\n");
+    for (int i = 0; i < edgeCount; i++)
+    {
+        printf("%d -- %d (Weight: %d)\n", result[i].src, result[i].dest, result[i].weight);
+        totalCost += result[i].weight;
     }
-    printf("Total Minimum Cost: %d\n", minCost);
+
+    printf("Total Minimum Cost: %d\n", totalCost);
 }
 
-int main() {
+int main()
+{
     printf("Student Name: Ronit Kundnani\n");
     printf("Student RollNo: 24BIT100\n");
+
     int V = 7;
     int E = 9;
 
-    Edge edges[E_MAX] = {
+    struct Edge edges[9] = {
         {0, 1, 2},
         {0, 3, 4},
         {1, 2, 3},
@@ -90,8 +89,9 @@ int main() {
         {5, 6, 9}
     };
 
-    printf("Kruskal's Algorithm for MST\n");
-    printf("Graph has %d vertices (0 to %d) and %d edges.\n\n", V, V - 1, E);
+    printf("Minimum Spanning Tree using Kruskal's Algorithm\n");
+    printf("Number of Vertices: %d\n", V);
+    printf("Number of Edges: %d\n\n", E);
 
     kruskalMST(edges, V, E);
 
